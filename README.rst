@@ -39,26 +39,16 @@ Creating a client
   client = TelegramClient('sarajan', 2737600, ba2bf64225a4321285ac9236194db91f)
   client.start()
 
+# send message
 
-Doing stuff
------------
+usernames = ["mohammadfc" , "shaghayegh_tat" , "username3" , "username4"]
+message = """hi i am a telegarm client
+i will send you messages automatically !
+:)"""
 
-.. code:: python
+for username in usernames:
+    client.send_message(username , message)
+    print("sending message to {}".format(username))
 
-  print(client.get_me().stringify())
-
-  client.send_message('username', 'Hello! Talking to you from Telethon')
-  client.send_file('username', '/home/myself/Pictures/holidays.jpg')
-
-  client.download_profile_photo('me')
-  messages = client.get_messages('username')
-  client.download_media(messages[0])
-
-
-Next steps
-----------
-
-Do you like how Telethon looks? Check out
-`Read The Docs <http://telethon.rtfd.io/>`_
-for a more in-depth explanation, with examples,
-troubleshooting issues, and more useful information.
+client.log_out()
+client.disconnect()
