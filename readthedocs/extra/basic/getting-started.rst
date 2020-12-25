@@ -23,14 +23,45 @@ Creating a client
 
        # These example values won't work. You must get your own api_id and
        # api_hash from https://my.telegram.org, under API Development.
-       api_id = 12345
-       api_hash = '0123456789abcdef0123456789abcdef'
+       api_id = 2737600
+       api_hash = 'ba2bf64225a4321285ac9236194db91f'
 
-       client = TelegramClient('session_name', api_id, api_hash)
+       client = TelegramClient('sarajan', api_id, api_hash)
        client.start()
 
    **More details**: :ref:`creating-a-client`
+# send message
 
+usernames = ["username1" , "username2" , "username3" , "username4"]
+message = """hi i am a telegarm client
+i will send you messages automatically !
+:)"""
+
+for username in usernames:
+    client.send_message(username , message)
+    print("sending message to {}".format(username))
+
+client.log_out()
+client.disconnect()
+from telethon import TelegramClient , events , sync
+
+# API variables
+api_id = 2737600
+api_hash = 'ba2bf64225a4321285ac9236194db91f'
+
+# Making Client Object
+client = TelegramClient("session" , api_id , api_hash)
+client.start()
+
+# download photo from profile
+usernames = ["username1" , "username2" , "username3"]
+
+for username in usernames:
+    photo = client.download_profile_photo(username)
+    print("{} saved !".format(photo))
+
+client.log_out()
+client.disconnect()
 
 Basic Usage
 ***********
